@@ -9,5 +9,5 @@ if (cleanType === 'vand') {
 const quickType = prompt('Hvilken type er din Pokémon?').trim().toLowerCase();
 
 if (cleanType === 'vand') {
-  alert('Pas på elektriske angreb!');
+  alert('Pas på elektriske angreb!'); 
 }
