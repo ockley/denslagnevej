@@ -1,19 +1,13 @@
-const attacker = { name: 'Dark Vaporeon', type: 'Vand', attack: 'Bite', damage: 30 };
-const defender = { name: 'Charmander', type: 'Ild', attack: 'Ember', damage: 35 };
+const type = prompt('Hvilken type er din Pokémon?');
+const cleanType = type.trim().toLowerCase();
 
-const isEffective =
-  (attacker.type === 'Vand' && defender.type === 'Ild') ||
-  (attacker.type === 'Ild' && defender.type === 'Græs') ||
-  (attacker.type === 'Græs' && defender.type === 'Vand');
-
-let damage = attacker.damage;
-
-if (isEffective) {
-  damage *= 2;
+if (cleanType === 'vand') {
+  alert('Pas på elektriske angreb!');
 }
 
-if (!isEffective) {
-  console.log('Angrebet var ikke særligt effektivt');
-}
+// Ekstra: det hele i én linje
+const quickType = prompt('Hvilken type er din Pokémon?').trim().toLowerCase();
 
-alert(`${attacker.name} angriber ${defender.name} med ${attacker.attack} og gør ${damage} i skade.`);
+if (cleanType === 'vand') {
+  alert('Pas på elektriske angreb!');
+}
