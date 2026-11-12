@@ -7,4 +7,4 @@ if (damage > 30) {
   message = 'Stærkt angreb!';
 }
 
-console.log(message);
+console.log(message); 
