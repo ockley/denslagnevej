@@ -1,5 +1,4 @@
 const fornavn = 'Karsten';
-console.log(fornavn);
+const efternavn = prompt('Hvad er dit efternavn?');
 
-// Dette giver en fejl, da fornavn er en konstant
-// fornavn = 'Mikkel';
+console.log(fornavn + ' ' + efternavn);
