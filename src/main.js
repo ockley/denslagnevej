@@ -1,12 +1,10 @@
-const damage = 30;
+const damage = Number(prompt('Hvor meget skade gør din Pokémons angreb?'));
 
-console.log(damage >= 30); // true
-console.log(damage === 30); // true
-console.log(damage !== 30); // false
+// Variablen oprettes før blokken, så den kan bruges bagefter
+let message = 'Almindeligt angreb';
 
-const isStrong = damage > 25;
-console.log(isStrong); // true
-console.log(typeof isStrong); // boolean
+if (damage > 30) {
+  message = 'Stærkt angreb!';
+}
 
-console.log('30' === 30); // false – tekst og tal er ikke ens
-console.log('Vand' === 'vand'); // false – store og små bogstaver tæller
+console.log(message);
