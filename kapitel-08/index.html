@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8.9 Samlingen</title>
+  </head>
+  <body>
+    <h1>Samlingen</h1>
+
+    <div class="controls">
+      <label>
+        Søg
+        <input id="search" type="search" placeholder="Navn på kort">
+      </label>
+
+      <label>
+        Type
+        <select id="type-filter">
+          <option value="Alle">Alle</option>
+          <option value="Vand">Vand</option>
+          <option value="Ild">Ild</option>
+          <option value="Græs">Græs</option>
+          <option value="Elektrisk">Elektrisk</option>
+        </select>
+      </label>
+
+      <label>
+        Sortér efter
+        <select id="sort">
+          <option value="name">Navn</option>
+          <option value="damage">Skade</option>
+          <option value="hp">Livspoint</option>
+        </select>
+      </label>
+
+      <button id="reset" class="secondary">Nulstil</button>
+    </div>
+
+    <ul id="stats" class="stats"></ul>
+
+    <div class="layout">
+      <main id="card-container"></main>
+
+      <aside id="detail" class="detail">
+        <p class="empty">Klik på et kort for at se det her.</p>
+      </aside>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

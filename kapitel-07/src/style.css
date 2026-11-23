@@ -1,0 +1,281 @@
+/* Grundlæggende opsætning af siden */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 32px 16px;
+  font-family: system-ui, sans-serif;
+  background-color: #f3f1ec;
+  color: #222;
+}
+
+#card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+
+/* Selve kortet. Farven kommer fra typeklassen længere nede */
+.card {
+  width: 240px;
+  padding: 10px;
+  border: 6px solid #f5d33f;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  background-color: #c9c4b4;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0 4px;
+}
+
+.card-header h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.card-hp {
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.card-image {
+  display: block;
+  width: 100%;
+  height: 150px;
+  margin: 8px 0;
+  object-fit: contain;
+  border: 3px solid #d8b631;
+  border-radius: 6px;
+  background: radial-gradient(circle, #ffffff, #e9e4d6);
+  image-rendering: pixelated;
+}
+
+.card-type {
+  margin: 0 0 8px;
+  font-size: 0.75rem;
+  font-style: italic;
+  text-align: center;
+}
+
+.card-attack {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 4px 4px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+/* Livspoint-bjælken */
+.hp-bar {
+  height: 10px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.6);
+  overflow: hidden;
+}
+
+.hp-fill {
+  height: 100%;
+  background-color: #2fb24c;
+}
+
+.critical .hp-fill {
+  background-color: #e0302b;
+}
+
+/* Typefarver */
+.type-water { background-color: #8fb4f0; }
+.type-fire { background-color: #f2a26b; }
+.type-grass { background-color: #9fd37f; }
+.type-electric { background-color: #f7dd6a; }
+.type-unknown { background-color: #c9c4b4; }
+
+/* Et besvimet kort bliver gråt og falmet */
+.fainted {
+  filter: grayscale(1);
+  opacity: 0.6;
+}
+
+/* Overskrifter */
+body > h1,
+body > h2 {
+  text-align: center;
+}
+
+body > h2 {
+  margin-top: 48px;
+}
+
+.card-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 24px;
+  border-radius: 16px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-form label {
+  margin: 12px 0 4px;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.card-form input,
+.card-form select {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font: inherit;
+}
+
+.error {
+  min-height: 1.2em;
+  margin: 12px 0 0;
+  color: #c62828;
+  font-size: 0.9rem;
+}
+
+.buttons {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 999px;
+  background-color: #222;
+  color: #fff;
+  font: inherit;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button.secondary {
+  background-color: #e5e1d6;
+  color: #222;
+}
+
+button:hover {
+  opacity: 0.85;
+}
+
+/* Arenaen */
+.arena {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 24px;
+  border-radius: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.arena-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  min-height: 120px;
+}
+
+.versus {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.empty-slot {
+  width: 200px;
+  padding: 40px 16px;
+  border: 3px dashed #ccc;
+  border-radius: 16px;
+  color: #888;
+}
+
+.message {
+  min-height: 1.6em;
+  margin: 16px 0;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.arena .buttons {
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.battle-log {
+  margin: 16px 0 0;
+  padding-left: 0;
+  list-style: none;
+  text-align: left;
+}
+
+.battle-log li {
+  padding: 6px 0;
+  border-bottom: 1px solid #eee;
+}
+
+/* Samlingen. Kortene kan klikkes */
+#card-container .card {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+#card-container .card:hover {
+  transform: translateY(-4px);
+}
+
+.selected {
+  outline: 4px solid #222;
+  outline-offset: 4px;
+}
+
+.is-opponent {
+  outline: 4px dashed #e0302b;
+  outline-offset: 4px;
+}
+
+/* Formularen til nye kort */
+.card-form {
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+/* Et kort, der bliver ramt, ryster */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-8px) rotate(-2deg); }
+  40% { transform: translateX(8px) rotate(2deg); }
+  60% { transform: translateX(-6px); }
+  80% { transform: translateX(6px); }
+}
+
+.hit {
+  animation: shake 0.4s;
+}
+
+/* Ingen rysten for dem, der har bedt om mindre bevægelse */
+@media (prefers-reduced-motion: reduce) {
+  .hit {
+    animation: none;
+  }
+
+  #card-container .card {
+    transition: none;
+  }
+}

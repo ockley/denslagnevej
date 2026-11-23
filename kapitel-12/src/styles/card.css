@@ -1,0 +1,255 @@
+/* Farverne til kortene */
+:root {
+  --card-text: #222222;
+  --card-border: #f5d33f;
+  --card-image-border: #d8b631;
+  --hp-good: #2fb24c;
+  --hp-critical: #e0302b;
+  --stat-fill: #3b7dd8;
+
+  --color-normal: #d8d3c4;
+  --color-fire: #f2a26b;
+  --color-water: #8fb4f0;
+  --color-grass: #9fd37f;
+  --color-electric: #f7dd6a;
+  --color-ice: #b5e4e4;
+  --color-fighting: #e08a7a;
+  --color-poison: #c79ad6;
+  --color-ground: #e3c98a;
+  --color-flying: #b9c8f5;
+  --color-psychic: #f59ab6;
+  --color-bug: #c3d66f;
+  --color-rock: #cdbf80;
+  --color-ghost: #a99bc9;
+  --color-dragon: #a991f2;
+  --color-dark: #a89a8c;
+  --color-steel: #c6c9d6;
+  --color-fairy: #f2bfd2;
+  --color-unknown: #c9c4b4;
+}
+
+/* Selve kortet. Teksten er altid mørk, fordi typefarverne er lyse, også i mørkt tema */
+.card {
+  width: 240px;
+  padding: 10px;
+  border: 6px solid var(--card-border);
+  border-radius: var(--radius);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  background-color: var(--color-unknown);
+  color: var(--card-text);
+}
+
+.card-grid .card {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.card-grid .card:hover {
+  transform: translateY(-4px);
+}
+
+.detail .card {
+  width: 100%;
+}
+
+.detail .card-image {
+  height: 220px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0 4px;
+}
+
+.card-header h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.card-hp {
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.card-image {
+  display: block;
+  width: 100%;
+  height: 150px;
+  margin: 8px 0;
+  object-fit: contain;
+  border: 3px solid var(--card-image-border);
+  border-radius: 6px;
+  background: radial-gradient(circle, #ffffff, #e9e4d6);
+  image-rendering: pixelated;
+}
+
+.card-type {
+  margin: 0 0 8px;
+  font-size: 0.75rem;
+  font-style: italic;
+  text-align: center;
+}
+
+.card-attack {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 4px 4px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+/* Livspoint-bjælken. JavaScript sætter --hp, CSS bestemmer udseendet */
+.hp-bar {
+  height: 10px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.6);
+  overflow: hidden;
+}
+
+.hp-fill {
+  width: var(--hp);
+  height: 100%;
+  background-color: var(--hp-good);
+}
+
+.critical .hp-fill {
+  background-color: var(--hp-critical);
+}
+
+/* Knapperne nederst på kortet */
+.card-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.card-actions button {
+  padding: 6px 12px;
+  font-size: 0.85rem;
+}
+
+.favorite-button {
+  background-color: #ffffff;
+  color: var(--favorite);
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.is-favorite {
+  border-color: var(--favorite);
+}
+
+/* Typerne */
+.type-normal {
+  background-color: var(--color-normal);
+}
+.type-fire {
+  background-color: var(--color-fire);
+}
+.type-water {
+  background-color: var(--color-water);
+}
+.type-grass {
+  background-color: var(--color-grass);
+}
+.type-electric {
+  background-color: var(--color-electric);
+}
+.type-ice {
+  background-color: var(--color-ice);
+}
+.type-fighting {
+  background-color: var(--color-fighting);
+}
+.type-poison {
+  background-color: var(--color-poison);
+}
+.type-ground {
+  background-color: var(--color-ground);
+}
+.type-flying {
+  background-color: var(--color-flying);
+}
+.type-psychic {
+  background-color: var(--color-psychic);
+}
+.type-bug {
+  background-color: var(--color-bug);
+}
+.type-rock {
+  background-color: var(--color-rock);
+}
+.type-ghost {
+  background-color: var(--color-ghost);
+}
+.type-dragon {
+  background-color: var(--color-dragon);
+}
+.type-dark {
+  background-color: var(--color-dark);
+}
+.type-steel {
+  background-color: var(--color-steel);
+}
+.type-fairy {
+  background-color: var(--color-fairy);
+}
+.type-unknown {
+  background-color: var(--color-unknown);
+}
+
+/* Typer som små mærker i detaljepanelet */
+.type-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.type-badges li {
+  padding: 2px 10px;
+  border-radius: 999px;
+  color: var(--card-text);
+  font-size: 0.85rem;
+}
+
+/* Bjælkerne for værdierne. JavaScript sætter --value */
+.stat-list {
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stat-list li {
+  display: grid;
+  grid-template-columns: 110px 36px 1fr;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  font-size: 0.85rem;
+}
+
+.stat-bar {
+  height: 8px;
+  border-radius: 4px;
+  background-color: var(--border);
+  overflow: hidden;
+}
+
+.stat-fill {
+  width: var(--value);
+  height: 100%;
+  background-color: var(--stat-fill);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-grid .card {
+    transition: none;
+  }
+}

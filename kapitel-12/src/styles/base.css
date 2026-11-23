@@ -1,0 +1,110 @@
+/* Design tokens: alle farver og faste mål samlet ét sted */
+:root {
+  --background: #f3f1ec;
+  --surface: #ffffff;
+  --text: #222222;
+  --muted: #666666;
+  --border: #cccccc;
+  --accent: #222222;
+  --accent-text: #ffffff;
+  --secondary: #e5e1d6;
+  --secondary-text: #222222;
+  --error: #c62828;
+  --favorite: #e0302b;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --radius: 16px;
+}
+
+/* Mørkt tema, når brugerens computer er sat til mørk tilstand */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1a1a1a;
+    --surface: #2a2a2a;
+    --text: #f0f0f0;
+    --muted: #aaaaaa;
+    --border: #555555;
+    --accent: #f0f0f0;
+    --accent-text: #1a1a1a;
+    --secondary: #444444;
+    --secondary-text: #f0f0f0;
+    --error: #ff8a80;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 32px 16px;
+  font-family: system-ui, sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+}
+
+body > h1 {
+  text-align: center;
+}
+
+/* Knapper */
+button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 999px;
+  background-color: var(--accent);
+  color: var(--accent-text);
+  font: inherit;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button.secondary {
+  background-color: var(--secondary);
+  color: var(--secondary-text);
+}
+
+button:hover {
+  opacity: 0.85;
+}
+
+button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.buttons {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+/* Felter */
+input,
+select {
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background-color: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-weight: normal;
+}
+
+/* Beskeder */
+.status {
+  min-height: 1.4em;
+  margin: 0 0 16px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.status.is-error {
+  color: var(--error);
+}
+
+.empty {
+  color: var(--muted);
+  font-style: italic;
+}

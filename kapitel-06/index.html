@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6.5 Kortbyggeren</title>
+  </head>
+  <body>
+    <h1>Kortbyggeren</h1>
+
+    <div class="builder">
+      <form id="card-form" class="card-form">
+        <label for="name">Navn</label>
+        <input id="name" type="text" required>
+
+        <label for="type">Type</label>
+        <select id="type">
+          <option>Vand</option>
+          <option>Ild</option>
+          <option>Græs</option>
+          <option>Elektrisk</option>
+        </select>
+
+        <label for="attack">Angreb</label>
+        <input id="attack" type="text" required>
+
+        <label for="damage">Skade</label>
+        <input id="damage" type="number" min="1" max="200" value="30" required>
+
+        <label for="hp">Livspoint</label>
+        <input id="hp" type="number" min="1" max="300" value="100" required>
+
+        <p id="error" class="error" role="alert"></p>
+
+        <div class="buttons">
+          <button type="submit">Tilføj kort</button>
+          <button id="random-button" type="button" class="secondary">Tilfældigt kort</button>
+        </div>
+      </form>
+
+      <div id="preview" class="preview"></div>
+    </div>
+
+    <h2>Min samling</h2>
+    <main id="card-container"></main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

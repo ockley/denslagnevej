@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>7.5 Kampen med knapper</title>
+  </head>
+  <body>
+    <h1>Kampen</h1>
+
+    <section class="arena">
+      <div id="arena-cards" class="arena-cards"></div>
+      <p id="message" class="message"></p>
+      <div class="buttons">
+        <button id="find-opponent">Find modstander</button>
+        <button id="fight">Kæmp</button>
+        <button id="new-battle" class="secondary">Ny kamp</button>
+      </div>
+      <ol id="battle-log" class="battle-log"></ol>
+    </section>
+
+    <h2>Vælg dit kort</h2>
+    <main id="card-container"></main>
+
+    <h2>Tilføj et kort</h2>
+    <form id="new-card" class="card-form">
+      <label for="name">Navn</label>
+      <input id="name" type="text" required>
+
+      <label for="type">Type</label>
+      <select id="type">
+        <option>Vand</option>
+        <option>Ild</option>
+        <option>Græs</option>
+        <option>Elektrisk</option>
+      </select>
+
+      <label for="damage">Skade</label>
+      <input id="damage" type="number" min="1" max="200" required>
+
+      <p id="error" class="error" role="alert"></p>
+
+      <div class="buttons">
+        <button type="submit">Tilføj kort</button>
+      </div>
+    </form>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

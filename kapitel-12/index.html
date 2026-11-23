@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>12.7 Ryd op</title>
+  </head>
+  <body>
+    <h1>Pokédex</h1>
+
+    <section class="team">
+      <h2>Mit hold</h2>
+      <ul id="team-stats" class="stats"></ul>
+      <div id="team-container" class="card-grid"></div>
+      <div class="buttons">
+        <button id="battle">Kæmp mod et tilfældigt hold</button>
+        <button id="reset-team" class="secondary">Nulstil holdet</button>
+      </div>
+      <p id="battle-result" class="battle-result"></p>
+      <ol id="battle-log" class="battle-log"></ol>
+    </section>
+
+    <div class="controls">
+      <form id="search-form" class="search-form">
+        <label>
+          Slå op på navn eller nummer
+          <input id="search-name" type="text" placeholder="f.eks. pikachu eller 25" />
+        </label>
+        <button type="submit">Slå op</button>
+      </form>
+    </div>
+
+    <div class="controls">
+      <label>
+        Filtrér på navn
+        <input id="search" type="search" placeholder="Navn på kort" />
+      </label>
+
+      <label>
+        Type
+        <select id="type-filter">
+          <option value="Alle">Alle</option>
+          <option>Normal</option>
+          <option>Ild</option>
+          <option>Vand</option>
+          <option>Græs</option>
+          <option>Elektrisk</option>
+          <option>Is</option>
+          <option>Kamp</option>
+          <option>Gift</option>
+          <option>Jord</option>
+          <option>Flyvende</option>
+          <option>Psykisk</option>
+          <option>Insekt</option>
+          <option>Sten</option>
+          <option>Spøgelse</option>
+          <option>Drage</option>
+          <option>Mørke</option>
+          <option>Stål</option>
+          <option>Fe</option>
+        </select>
+      </label>
+
+      <label>
+        Sortér efter
+        <select id="sort">
+          <option value="id">Nummer</option>
+          <option value="name">Navn</option>
+          <option value="damage">Skade</option>
+          <option value="hp">Livspoint</option>
+        </select>
+      </label>
+
+      <label class="checkbox">
+        <input id="only-favorites" type="checkbox" />
+        Vis kun favoritter <span id="favorite-count"></span>
+      </label>
+
+      <button id="reset-filters" class="secondary">Nulstil filtre</button>
+      <button id="reset-all" class="secondary">Nulstil alt</button>
+    </div>
+
+    <p id="status" class="status" role="status"></p>
+
+    <ul id="stats" class="stats"></ul>
+
+    <div class="layout">
+      <main id="card-container" class="card-grid"></main>
+
+      <aside id="detail" class="detail">
+        <p class="empty">Klik på et kort, eller slå en Pokémon op.</p>
+      </aside>
+    </div>
+
+    <nav class="pager">
+      <button id="previous" class="secondary">Forrige</button>
+      <span id="page-info"></span>
+      <button id="next" class="secondary">Næste</button>
+    </nav>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
